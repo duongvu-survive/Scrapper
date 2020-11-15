@@ -1,0 +1,40 @@
+{
+    "name": "Scrapper Link",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "Extension for FB",
+    "icons": {
+        "16": "images/icon.png",
+        "48": "images/icon.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "images/icon.png",
+            "38": "images/icon.png"
+        },
+        "default_title": "Scrapper Link",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "page": "background.html",
+        "persistent": false
+    },
+    "content_scripts": [{
+        "matches": [
+            "https://www.facebook.com/*"
+        ],
+        "js": [
+            "scripts/libs/jquery.min.js",
+            "scripts/content.js"
+        ],
+        "css": [
+            "styles/content.css"
+        ],
+        "run_at": "document_start"
+    }],
+    "permissions": [
+        "clipboardWrite",
+        "activeTab",
+        "storage"
+    ]
+}
